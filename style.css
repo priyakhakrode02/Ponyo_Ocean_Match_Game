@@ -1,0 +1,180 @@
+body{
+    
+    
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container{
+    max-width: 500px;
+    width: 100%;
+    /*display: flex;
+    grid-template-columns: repeat(4, minmax(0, 1fr));*/
+    
+    background: rgba(255, 255, 255, 0.25);
+    /*border: 2px solid rgba(255, 255, 255, 0.25);*/
+    /*border: 1px ;*/
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 30px;
+    /*box-shadow: 0 25px 35px rgba(0, 50, 90, 0.12);*/
+    /*255,255, 255, 0.40),box-shadow: 0 8px 0 rgba(0, 35, 75, 0.55),
+                0 18px 30px rgba(0, 20,65, 0.45),
+                0 0 25px rgba(0, 255, 255, 0.30),
+                inset 0 2px 5px rgba(
+                inset 0 -8px 18px rgba(0, 35, 85, 0.20);*/
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.35);
+           
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px 30px;
+    text-align: center;
+
+}
+
+.title{
+    font-size: 2.7rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #bfe7ea;
+    
+
+}
+.score{
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #bfe7ea;
+}
+
+.game-board{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: none;
+    background-image: url("ponyo_card_icon.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #bfe7ea;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.6s ease, background-color 0.4s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    
+
+}
+
+.card:not(.flipped):not(.matched){
+
+}
+
+.card.flipped, .card.matched{
+    background-image: none;
+}
+
+.card:hover{
+    transform:translate(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.22);
+}
+
+.card.flipped{
+    transform:rotateY(180deg);
+}
+
+.card.matched{
+    background-color: #bff289;
+    box-shadow: 0 5px 12px rgba(52, 211,153, 0.3);
+}
+
+/*.card.revealed{
+    background-color: white;
+}*/
+
+.card.matched .card-back{
+    background-color: #bbf1d2;
+    cursor: default;
+}
+
+.card.matched .card-inner{
+    transform:rotateY(180deg);
+}
+
+.card-back{
+
+    background-color: #bbf1d2;
+    transform: rotateY(180deg);
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+}
+
+.card-front{
+    background: #ff7070;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.win-message{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: 15px;
+    display: none;
+    font-style: italic;
+    color: #bff289;
+    
+}
+
+.card-inner{
+    position: absolute;
+    
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/*.card-front, .card-back{
+    display: flex;
+    position: absolute;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}*/
